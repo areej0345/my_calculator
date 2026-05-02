@@ -14,7 +14,7 @@ body {
   font-family: sans-serif;
 }
 
-/* ===== WRAPPER: calculator + history side by side ===== */
+/* ===== WRAPPER ===== */
 .app-wrapper {
   display: flex;
   gap: 16px;
@@ -29,7 +29,7 @@ body {
   width: 300px;
 }
 
-/* ===== MODE TABS — inside calculator ===== */
+/* ===== MODE TABS ===== */
 .mode-tabs {
   display: flex;
   gap: 8px;
@@ -103,7 +103,7 @@ body {
   flex: 1;
 }
 
-/* ===== MEMORY ROW — inside calculator ===== */
+/* ===== MEMORY ROW ===== */
 .memory-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -127,7 +127,7 @@ body {
   color: white;
 }
 
-/* ===== SCIENTIFIC BUTTONS — inside calculator ===== */
+/* ===== SCIENTIFIC BUTTONS ===== */
 .sci-buttons {
   display: none;
   grid-template-columns: repeat(5, 1fr);
@@ -178,7 +178,6 @@ button:active {
   opacity: 0.7;
 }
 
-/* Operator buttons */
 button[data-value="÷"],
 button[data-value="×"],
 button[data-value="−"],
@@ -186,26 +185,23 @@ button[data-value="+"] {
   background: #f39c12;
 }
 
-/* Top row buttons */
 button[data-action="clear"],
 button[data-action="sign"],
 button[data-action="percent"] {
   background: #555577;
 }
 
-/* Equals button */
 button[data-action="equals"] {
   background: #f39c12;
 }
 
-/* Zero button spans 2 columns */
 .zero {
   grid-column: span 2;
   text-align: left;
   padding-left: 22px;
 }
 
-/* ===== HISTORY PANEL — next to calculator ===== */
+/* ===== HISTORY PANEL ===== */
 .history-panel {
   background: #2a2a3e;
   border-radius: 20px;
@@ -273,7 +269,7 @@ button[data-action="equals"] {
 }
 
 /* ===== MOBILE RESPONSIVE ===== */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
 
   body {
     align-items: flex-start;
@@ -282,7 +278,7 @@ button[data-action="equals"] {
 
   .app-wrapper {
     flex-direction: column;
-    width: 100%;
+    width: 100vw;
     gap: 12px;
     padding: 12px;
   }
@@ -294,27 +290,27 @@ button[data-action="equals"] {
   }
 
   .buttons {
-    gap: 8px;
+    gap: 10px;
   }
 
   button {
-    padding: 20px 0;
-    font-size: 18px;
+    padding: 22px 0;
+    font-size: 20px;
     border-radius: 12px;
   }
 
   .memory-row button {
-    padding: 12px 0;
-    font-size: 13px;
+    padding: 14px 0;
+    font-size: 14px;
   }
 
   .sci-buttons button {
-    padding: 12px 0;
+    padding: 14px 0;
     font-size: 13px;
   }
 
   #screen {
-    font-size: 36px;
+    font-size: 40px;
   }
 
   #expr {
@@ -322,19 +318,22 @@ button[data-action="equals"] {
   }
 
   .display {
-    padding: 14px;
-    min-height: 90px;
+    padding: 16px;
+    min-height: 100px;
   }
 
   .history-panel {
     width: 100%;
-    max-height: 250px;
+    max-height: 200px;
     border-radius: 16px;
   }
 
   .tab {
-    padding: 10px 0;
-    font-size: 14px;
+    padding: 12px 0;
+    font-size: 15px;
   }
 
+  .zero {
+    padding-left: 24px;
+  }
 }
