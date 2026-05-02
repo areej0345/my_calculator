@@ -1,0 +1,340 @@
+/* ===== PAGE ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #1a1a2e;
+  font-family: sans-serif;
+}
+
+/* ===== WRAPPER: calculator + history side by side ===== */
+.app-wrapper {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+/* ===== CALCULATOR ===== */
+.calculator {
+  background: #2a2a3e;
+  border-radius: 20px;
+  padding: 20px;
+  width: 300px;
+}
+
+/* ===== MODE TABS — inside calculator ===== */
+.mode-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.tab {
+  flex: 1;
+  padding: 8px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  background: #3a3a5c;
+  color: #aaa;
+  transition: all 0.2s;
+}
+
+.tab.active {
+  background: #f39c12;
+  color: white;
+}
+
+/* ===== DISPLAY ===== */
+.display {
+  background: #1a1a2e;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#expr {
+  font-size: 13px;
+  color: #888;
+  min-height: 16px;
+  text-align: right;
+}
+
+.display-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#backspace-btn {
+  background: transparent;
+  color: #f39c12;
+  font-size: 20px;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+#backspace-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+#screen {
+  font-size: 32px;
+  color: white;
+  text-align: right;
+  flex: 1;
+}
+
+/* ===== MEMORY ROW — inside calculator ===== */
+.memory-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.memory-row button {
+  padding: 10px 0;
+  font-size: 12px;
+  background: #222240;
+  color: #aaa;
+  border: 1px solid #444;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.memory-row button:hover {
+  background: #2a2a50;
+  color: white;
+}
+
+/* ===== SCIENTIFIC BUTTONS — inside calculator ===== */
+.sci-buttons {
+  display: none;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.sci-buttons.visible {
+  display: grid;
+}
+
+.sci-buttons button {
+  padding: 10px 0;
+  font-size: 12px;
+  background: #2e2e50;
+  color: #c8b8ff;
+  border: 1px solid #4a4a70;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.sci-buttons button:hover {
+  background: #3a3a64;
+  color: white;
+}
+
+/* ===== MAIN BUTTON GRID ===== */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+button {
+  padding: 18px 0;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  background: #3a3a5c;
+  color: white;
+  transition: opacity 0.1s;
+}
+
+button:active {
+  opacity: 0.7;
+}
+
+/* Operator buttons */
+button[data-value="÷"],
+button[data-value="×"],
+button[data-value="−"],
+button[data-value="+"] {
+  background: #f39c12;
+}
+
+/* Top row buttons */
+button[data-action="clear"],
+button[data-action="sign"],
+button[data-action="percent"] {
+  background: #555577;
+}
+
+/* Equals button */
+button[data-action="equals"] {
+  background: #f39c12;
+}
+
+/* Zero button spans 2 columns */
+.zero {
+  grid-column: span 2;
+  text-align: left;
+  padding-left: 22px;
+}
+
+/* ===== HISTORY PANEL — next to calculator ===== */
+.history-panel {
+  background: #2a2a3e;
+  border-radius: 20px;
+  padding: 16px;
+  width: 200px;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+#clear-hist {
+  background: none;
+  border: 1px solid #555;
+  color: #aaa;
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#history-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hist-empty {
+  color: #666;
+  font-size: 13px;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.hist-item {
+  background: #1a1a2e;
+  border-radius: 10px;
+  padding: 10px 12px;
+  cursor: pointer;
+}
+
+.hist-item:hover {
+  background: #22223a;
+}
+
+.hist-expr {
+  font-size: 11px;
+  color: #888;
+  margin-bottom: 4px;
+}
+
+.hist-result {
+  font-size: 16px;
+  color: white;
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 600px) {
+
+  body {
+    align-items: flex-start;
+    padding: 0;
+  }
+
+  .app-wrapper {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .calculator {
+    width: 100%;
+    border-radius: 16px;
+    padding: 16px;
+  }
+
+  .buttons {
+    gap: 8px;
+  }
+
+  button {
+    padding: 20px 0;
+    font-size: 18px;
+    border-radius: 12px;
+  }
+
+  .memory-row button {
+    padding: 12px 0;
+    font-size: 13px;
+  }
+
+  .sci-buttons button {
+    padding: 12px 0;
+    font-size: 13px;
+  }
+
+  #screen {
+    font-size: 36px;
+  }
+
+  #expr {
+    font-size: 14px;
+  }
+
+  .display {
+    padding: 14px;
+    min-height: 90px;
+  }
+
+  .history-panel {
+    width: 100%;
+    max-height: 250px;
+    border-radius: 16px;
+  }
+
+  .tab {
+    padding: 10px 0;
+    font-size: 14px;
+  }
+
+}
