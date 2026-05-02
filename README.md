@@ -18,8 +18,8 @@ A fully-featured calculator web app built with pure **HTML, CSS, and JavaScript*
 | ⌨️ Keyboard Support | Full keyboard input support |
 | ⌫ Backspace | Delete last digit |
 | 📱 PWA | Installable as a desktop/mobile app |
-| 🌐 Offline Support | Works without internet (Service Worker) |
-| 📲 Mobile Responsive | Works on all screen sizes |
+| 🌐 Offline Support | Works without internet via Service Worker |
+| 📲 Mobile Responsive | Works perfectly on all screen sizes |
 
 ---
 
@@ -31,45 +31,47 @@ my-calculator/
   ├── style.css        # Dark theme & responsive layout
   ├── calc.js          # All JavaScript logic
   ├── manifest.json    # PWA configuration
-  ├── sw.js            # Service Worker (offline)
+  ├── sw.js            # Service Worker (offline support)
   ├── icon-192.png     # App icon (small)
   └── icon-512.png     # App icon (large)
 ```
 
 ---
 
-## 🧠 JavaScript Concepts Used
+## 🧠 Key JavaScript Concepts Used
 
-- **State Management** — Single state object tracks current, prev, op, evaled
-- **Event Delegation** — One listener handles all 19 buttons
-- **DOM Manipulation** — Dynamic history list rendering
-- **Service Worker** — Caches files for offline use
-- **PWA** — manifest.json for installable app
-- **Responsive Design** — CSS media queries for mobile
+- **State Management** — A single state object tracks current value, previous value, operator, and evaluation flag
+- **Event Delegation** — One event listener handles all 19 buttons efficiently
+- **DOM Manipulation** — History list is dynamically rendered using JavaScript
+- **Service Worker** — Caches all files for offline functionality
+- **PWA** — manifest.json enables the app to be installed on any device
+- **Responsive Design** — CSS media queries ensure mobile compatibility
 
 ---
 
 ## 🚀 How to Run Locally
 
 ```bash
-# 1. Clone the repo
+# 1. Clone the repository
 git clone https://github.com/areej0345/my-calculator-.git
 
-# 2. Open the folder
+# 2. Navigate to the folder
 cd my-calculator-
 
-# 3. Open in browser
-# Just open index.html in Chrome/Edge
-# Or use Live Server in VS Code
+# 3. Open in your browser
+# Simply open index.html in Chrome or Edge
+# Or use the Live Server extension in VS Code
 ```
 
 ---
 
-## 📱 Install as App
+## 📱 How to Install as an App
 
 1. Open the live demo in **Chrome**
-2. Click the **install icon** in the address bar
-3. Click **Install** — done! 🎉
+2. Click the **install icon (⊕)** in the address bar
+3. Click **Install** — that's it! 🎉
+
+The app will appear on your desktop or home screen like a native app.
 
 ---
 
@@ -81,8 +83,10 @@ cd my-calculator-
 
 ---
 
-## 👩‍💻 Author
+## 👩‍💻 About
 
-**Areej Ali Mustafa** — Built from scratch as a JavaScript learning project
+Built by **Areej Ali Mustafa** — a BS Computer Science student passionate about building clean, functional web applications.
 
-⭐ Agar pasand aaya toh **star** zaroor karo!
+This project was built from scratch as part of a JavaScript learning journey — no frameworks, just pure web fundamentals.
+
+⭐ If you found this project helpful, please consider giving it a **star**!
